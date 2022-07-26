@@ -32,8 +32,9 @@ contract ChatCode {
             delete friend[person][msg.sender];
     }
 
-    function verifyFriendshipStatus(address person1, address person2) public view returns(bool,bool)
-    {        
-        return (friend[person1][person2],friend[person1][person2]);
+    function verifyFriendshipStatus(address person1, address person2) public view returns(bool)
+    { 
+        if(friend[person1][person2] == true && friend[person2][person1] == true) return true;
+        else return false;
     }
 }
